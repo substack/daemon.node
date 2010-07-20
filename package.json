@@ -1,0 +1,19 @@
+{
+    "name" : "daemon",
+    "version" : "0.0.1",
+    "description" : "Create *nix daemons",
+    "repositories" : [
+       {
+           "type" : "git",
+           "url" : "http://github.com/Slashed/daemon.node.git" 
+       } 
+    ],
+    "main": "./daemon",
+    "scripts" : {
+        "install" : "node-waf configure build"
+    },
+    "engines" : {
+       "node" : ">=0.1.97"
+    }
+}
+

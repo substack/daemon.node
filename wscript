@@ -1,3 +1,7 @@
+import Options
+from os import unlink, symlink
+from os.path import exists 
+
 srcdir = "."
 blddir = "build"
 VERSION = "0.0.1"
@@ -13,3 +17,10 @@ def build(bld):
   obj = bld.new_task_gen("cxx", "shlib", "node_addon")
   obj.target = "daemon"
   obj.source = "daemon.cc"
+
+def shutdown():
+  if Options.commands['clean']:
+    if exists('daemon.node'): unlink('daemon.node')
+  else:
+    if exists('build/default/daemon.node') and not exists('daemon.node'):
+      symlink('build/default/daemon.node', 'daemon.node')

@@ -1,7 +1,7 @@
 var daemon = require('./daemon');
 var fs = require('fs');
 var http = require('http');
-var sys = require('sys');
+var util = require('util');
 
 var config = {
 	lockFile: '/tmp/testd.pid'	//Location of lockFile
@@ -24,7 +24,7 @@ switch(args[2]) {
 		break;
 		
 	default:
-		sys.puts('Usage: [start|stop]');
+		util.puts('Usage: [start|stop]');
 		process.exit(0);
 }
 
